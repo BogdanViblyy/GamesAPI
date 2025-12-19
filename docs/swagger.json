@@ -1,0 +1,47 @@
+{
+  "get": {
+    "tags": [
+      "details"
+    ],
+    "responses": {
+      "200": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "examples": {
+              "Full details of a game": {
+                "value": "    {id: 1, name: \"Witcher 3\", price: 29.99},"
+              }
+            }
+          }
+        },
+        "description": "Returns full details of a given id game"
+      },
+      "404": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            },
+            "examples": {
+              "Game /w+ was not found": {
+                "value": {
+                  "error": "Game \\w+ was not found in game array"
+                }
+              }
+            }
+          }
+        },
+        "description": "Game was not found in games array"
+      }
+    },
+    "operationId": "id",
+    "summary": "Get full details of a game",
+    "description": "Returns full details of a given id game"
+  }
+}
